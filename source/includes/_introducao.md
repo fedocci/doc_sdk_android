@@ -2,17 +2,17 @@
 
 ## Bem-vindo
 
-Bem-vindo a documentação do Paggi SDK Android, aqui você irá encontrar informação de como integrar seu app (Android) com nosso SDK para poder transacionar com nossa MPOS.
+Bem-vindo a documentação do Paggi SDK Android, aqui você irá encontrar informações para integrar seu app (Android) com nosso SDK para poder transacionar com nossa MPOS.
 
-Para ter mais informação sobre o Paggi, entre em nosso [site](https://www.paggi.com).
+Para ter mais informações sobre o Paggi, entre em nosso [site](https://www.paggi.com).
 
 Qualquer dúvida pode entrar em contato pelo email: `contato at paggi.com` .
 
 ## Por onde começar
 
-Começe baixando a última versão do nosso SDK em seu [repositório](https://github.com/kiik-payments/doc_sdk_android/releases/latest).
+Comece baixando a última versão do nosso SDK em seu [repositório](https://github.com/kiik-payments/doc_sdk_android/releases/latest).
 
-Após adicionar nosso jar em seu aplicativo, você também precisara adicionar as seguintes dependencies:
+Após adicionar nosso jar em seu aplicativo, você também precisará adicionar as seguintes dependêncies:
 
 - json.jar
 

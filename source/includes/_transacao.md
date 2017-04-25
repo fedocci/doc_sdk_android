@@ -6,9 +6,9 @@ Depois de carregar as tabelas na Pinpad, será possível transacionar no débito
 ```java
 PaggiTransaction paggiTransaction = new PaggiTransaction();
 paggiTransaction.setAmount("10,00"); // Valor será em String 
-stoneTransaction.setInitiatorTransactionKey("Paggi descricao"); // Descrição que será mostrada na fatura
-stoneTransaction.setInstalmentTransactionEnum(InstalmentTransactionEnum.ONE_INSTALMENT); // Número de parcelas
-stoneTransaction.setTypeOfTransaction(TypeOfTransactionEnum.CREDIT);
+paggiTransaction.setInitiatorTransactionKey("Paggi descricao"); // Descrição que será mostrada na fatura
+paggiTransaction.setInstalmentTransactionEnum(InstalmentTransactionEnum.ONE_INSTALMENT); // Número de parcelas
+paggiTransaction.setTypeOfTransaction(TypeOfTransactionEnum.CREDIT);
 
 // Em seguida é preciso enviar para o Paggi a transação
 

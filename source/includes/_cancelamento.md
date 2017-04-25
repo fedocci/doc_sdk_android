@@ -1,6 +1,6 @@
 # Cancelar transação
 
-Para cancelar uma transação, basta informar a `transctionID`
+Para cancelar uma transação, basta informar a `transactionID`
 
 ```java
 

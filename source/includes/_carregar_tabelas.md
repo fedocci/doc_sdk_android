@@ -1,6 +1,6 @@
 # Carregar tabelas
 
-Após fazer download das tabelas e parear sua Pinpad, será necessario carregar as tabelas AID e CAPKS na sua Pinpad.
+Após fazer download das tabelas e parear sua Pinpad, será necessário carregar as tabelas AID e CAPKS na sua Pinpad.
 
 ```java
 LoadTablesProvider loadTablesProvider = new LoadTablesProvider(this, new GcrRequestCommand(), pinpadSelected);

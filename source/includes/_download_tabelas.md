@@ -1,6 +1,6 @@
 # Download tabelas
 
-Para sua Pinpad como transacionar diferentes bandeiras e emissores é necessario que SDK tenha feito downlaod das tabelas AID e CAPKS
+Para sua Pinpad como transacionar diferentes bandeiras e emissores é necessário que SDK tenha feito downlaod das tabelas AID e CAPKS
 
 ```java
 ApplicationCache applicationCache = new ApplicationCache(getApplicationContext());

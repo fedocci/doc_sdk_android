@@ -1,10 +1,10 @@
 # Bluetooth
 
-Toda comunidação do Pinpad com SDK é feita por Blutooth.
+Toda comunicação do Pinpad com SDK é feita por Blutooth.
 
 ## Parear pinpad
 
-Primeiramente será necessario parear seu pinpad com o celular do cliente
+Primeiramente será necessário parear seu pinpad com o celular do cliente
 
 ## Listar pinpads
 
