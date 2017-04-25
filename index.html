@@ -230,17 +230,17 @@
 
 <h2 id="bem-vindo">Bem-vindo</h2>
 
-<p>Bem-vindo a documentação do Paggi SDK Android, aqui você irá encontrar informação de como integrar seu app (Android) com nosso SDK para poder transacionar com nossa MPOS.</p>
+<p>Bem-vindo a documentação do Paggi SDK Android, aqui você irá encontrar informações para integrar seu app (Android) com nosso SDK para poder transacionar com nossa MPOS.</p>
 
-<p>Para ter mais informação sobre o Paggi, entre em nosso <a href="https://www.paggi.com">site</a>.</p>
+<p>Para ter mais informações sobre o Paggi, entre em nosso <a href="https://www.paggi.com">site</a>.</p>
 
 <p>Qualquer dúvida pode entrar em contato pelo email: <code class="prettyprint">contato at paggi.com</code> .</p>
 
 <h2 id="por-onde-come-ar">Por onde começar</h2>
 
-<p>Começe baixando a última versão do nosso SDK em seu <a href="https://github.com/kiik-payments/doc_sdk_android/releases/latest">repositório</a>.</p>
+<p>Comece baixando a última versão do nosso SDK em seu <a href="https://github.com/kiik-payments/doc_sdk_android/releases/latest">repositório</a>.</p>
 
-<p>Após adicionar nosso jar em seu aplicativo, você também precisara adicionar as seguintes dependencies:</p>
+<p>Após adicionar nosso jar em seu aplicativo, você também precisará adicionar as seguintes dependêncies:</p>
 
 <ul>
 <li>json.jar</li>
@@ -253,7 +253,7 @@
 </code></pre>
           <h1 id="download-tabelas">Download tabelas</h1>
 
-<p>Para sua Pinpad como transacionar diferentes bandeiras e emissores é necessario que SDK tenha feito downlaod das tabelas AID e CAPKS</p>
+<p>Para sua Pinpad como transacionar diferentes bandeiras e emissores é necessário que SDK tenha feito downlaod das tabelas AID e CAPKS</p>
 <pre class="highlight java tab-java"><code><span class="n">ApplicationCache</span> <span class="n">applicationCache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ApplicationCache</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">applicationCache</span><span class="o">.</span><span class="na">checkIfHasTables</span><span class="o">()</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">DownloadTablesProvider</span> <span class="n">downloadTablesProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DownloadTablesProvider</span><span class="o">(</span><span class="n">SUA_ACTIVITY_AQUI</span><span class="o">);</span>
@@ -267,11 +267,11 @@
 </code></pre>
           <h1 id="bluetooth">Bluetooth</h1>
 
-<p>Toda comunidação do Pinpad com SDK é feita por Blutooth.</p>
+<p>Toda comunicação do Pinpad com SDK é feita por Blutooth.</p>
 
 <h2 id="parear-pinpad">Parear pinpad</h2>
 
-<p>Primeiramente será necessario parear seu pinpad com o celular do cliente</p>
+<p>Primeiramente será necessário parear seu pinpad com o celular do cliente</p>
 
 <h2 id="listar-pinpads">Listar pinpads</h2>
 
@@ -285,7 +285,7 @@
 </code></pre>
           <h1 id="carregar-tabelas">Carregar tabelas</h1>
 
-<p>Após fazer download das tabelas e parear sua Pinpad, será necessario carregar as tabelas AID e CAPKS na sua Pinpad.</p>
+<p>Após fazer download das tabelas e parear sua Pinpad, será necessário carregar as tabelas AID e CAPKS na sua Pinpad.</p>
 <pre class="highlight java tab-java"><code><span class="n">LoadTablesProvider</span> <span class="n">loadTablesProvider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoadTablesProvider</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">GcrRequestCommand</span><span class="o">(),</span> <span class="n">pinpadSelected</span><span class="o">);</span>
 <span class="n">loadTablesProvider</span><span class="o">.</span><span class="na">setConnectionCallback</span><span class="o">(</span><span class="k">new</span> <span class="n">PaggiCallbackInterface</span><span class="o">()</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">()</span> <span class="o">{</span> <span class="o">};</span>
@@ -299,9 +299,9 @@
 <p>Depois de carregar as tabelas na Pinpad, será possível transacionar no débito ou crédito</p>
 <pre class="highlight java tab-java"><code><span class="n">PaggiTransaction</span> <span class="n">paggiTransaction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaggiTransaction</span><span class="o">();</span>
 <span class="n">paggiTransaction</span><span class="o">.</span><span class="na">setAmount</span><span class="o">(</span><span class="s">"10,00"</span><span class="o">);</span> <span class="c1">// Valor será em String </span>
-<span class="n">stoneTransaction</span><span class="o">.</span><span class="na">setInitiatorTransactionKey</span><span class="o">(</span><span class="s">"Paggi descricao"</span><span class="o">);</span> <span class="c1">// Descrição que será mostrada na fatura</span>
-<span class="n">stoneTransaction</span><span class="o">.</span><span class="na">setInstalmentTransactionEnum</span><span class="o">(</span><span class="n">InstalmentTransactionEnum</span><span class="o">.</span><span class="na">ONE_INSTALMENT</span><span class="o">);</span> <span class="c1">// Número de parcelas</span>
-<span class="n">stoneTransaction</span><span class="o">.</span><span class="na">setTypeOfTransaction</span><span class="o">(</span><span class="n">TypeOfTransactionEnum</span><span class="o">.</span><span class="na">CREDIT</span><span class="o">);</span>
+<span class="n">paggiTransaction</span><span class="o">.</span><span class="na">setInitiatorTransactionKey</span><span class="o">(</span><span class="s">"Paggi descricao"</span><span class="o">);</span> <span class="c1">// Descrição que será mostrada na fatura</span>
+<span class="n">paggiTransaction</span><span class="o">.</span><span class="na">setInstalmentTransactionEnum</span><span class="o">(</span><span class="n">InstalmentTransactionEnum</span><span class="o">.</span><span class="na">ONE_INSTALMENT</span><span class="o">);</span> <span class="c1">// Número de parcelas</span>
+<span class="n">paggiTransaction</span><span class="o">.</span><span class="na">setTypeOfTransaction</span><span class="o">(</span><span class="n">TypeOfTransactionEnum</span><span class="o">.</span><span class="na">CREDIT</span><span class="o">);</span>
 
 <span class="c1">// Em seguida é preciso enviar para o Paggi a transação</span>
 
@@ -313,7 +313,7 @@
 </code></pre>
           <h1 id="cancelar-transa-o">Cancelar transação</h1>
 
-<p>Para cancelar uma transação, basta informar a <code class="prettyprint">transctionID</code></p>
+<p>Para cancelar uma transação, basta informar a <code class="prettyprint">transactionID</code></p>
 <pre class="highlight java tab-java"><code>
 </code></pre>
       </div>
