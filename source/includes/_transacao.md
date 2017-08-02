@@ -31,10 +31,11 @@ TransactionProvider provider = new TransactionProvider(paggiTransaction);
 provider.setConnectionCallback(new TransactionCallback() {
             @Override
             public void onSuccess(Transaction transaction) {
-                Log.i(TAG, "SUCCESS: " + transaction.toString());
-            }
+                //transaçao realizada
+            }
             @Override
             public void onError() {
+                //erro ao transacionar
             }
         });
 provider.execute();
@@ -50,13 +51,11 @@ provider.setConnectionCallback(new ChargesCallback() {
        @Override
         public void onSuccess(ArrayList<Charge> charges) {
             //retorna uma lista de transações
-            showCharges(charges);
         }
        @Override
         public void onError(Throwable throwable) {
-            //erro ao cancelar transacão
-           throwable.printStackTrace();
-        }
+            //erro ao lista transações
+        }
 });
 provider.execute();
 ```
@@ -70,14 +69,13 @@ ReversingTransactionProvider reversingTransactionProvider = new ReversingTransac
 reversingTransactionProvider.setConnectionCallback(new CancelTransactionCallback() {
     @Override
     public void onSuccess(Charge charge) {
-        display("Cancelamento efetuado: "+charge.toString());
+        //retorna a transaçao cancelada
     }
 
     @Override
     public void onFailure(Throwable throwable) {
-        display("Cancelamento não foi efetuado ");
-        throwable.printStackTrace();
-    }
+        //erro ao cancelar transaçao
+    }
 });
 reversingTransactionProvider.execute();
 ```
