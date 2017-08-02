@@ -1,20 +1,42 @@
 # Transacionar
 
-Depois de carregar as tabelas na Pinpad, será possível transacionar no débito ou crédito
+Transações débito ou crédito
 
+Use ```PaggiTransaction``` para setar os dados da transação. 
+
+Tipos de transação ```TypeOfTransactionEnum.CREDIT; TypeOfTransactionEnum.DEBIT```
+
+O limite de parcelas são 12x. Sendo assim ```Paggi.getInstalment(position)``` retorna um ```Enum``` do número de parcelas.
+position 0 para 1x ... position 11 para 12x.
 
 ```java
 PaggiTransaction paggiTransaction = new PaggiTransaction();
-paggiTransaction.setAmount("10,00"); // Valor será em String 
-paggiTransaction.setInitiatorTransactionKey("Paggi descricao"); // Descrição que será mostrada na fatura
-paggiTransaction.setInstalmentTransactionEnum(InstalmentTransactionEnum.ONE_INSTALMENT); // Número de parcelas
-paggiTransaction.setTypeOfTransaction(TypeOfTransactionEnum.CREDIT);
 
-// Em seguida é preciso enviar para o Paggi a transação
+paggiTransaction.setAmount(amount);
+paggiTransaction.setInitiatorTransactionKey(descriptor);
+TypeOfTransactionEnum typeTransaction = TypeOfTransactionEnum.CREDIT;
+paggiTransaction.setTypeOfTransaction(typeTransaction);
 
-TransactionProvider provider = new TransactionProvider(ACTIVITY_ATUAL, paggiTransaction);
-provider.setConnectionCallback(new PaggiCallbackInterface() {
-  public void onSucess() { };
-  public void OnError() { };
-});
+if (typeTransaction == TypeOfTransactionEnum.CREDIT) {
+    int position = spNumber_instalment.getSelectedItemPosition();
+    paggiTransaction.setInstalmentTransactionEnum(Paggi.getInstalment(0));
+} else {
+    paggiTransaction.setInstalmentTransactionEnum(InstalmentTransactionEnum.ONE_INSTALMENT);
+}
+```
+
+Após setar os dados da transação, use ```TransactionProvider``` para iniciar o processo.
+```java
+TransactionProvider provider = new TransactionProvider(paggiTransaction);
+provider.setConnectionCallback(new TransactionCallback() {
+            @Override
+            public void onSuccess(Transaction transaction) {
+                Log.i(TAG, "SUCCESS: " + transaction.toString());
+            }
+            @Override
+            public void onError() {
+            }
+
+        });
+        provider.execute();
 ```
