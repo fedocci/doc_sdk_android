@@ -42,18 +42,20 @@ provider.execute();
 
 # Listar transações
 
+A listagem de transações é feito pela chamada de ```ChargesProvider```
+
 ```java
 ChargesProvider provider = new ChargesProvider();
 provider.setConnectionCallback(new ChargesCallback() {
        @Override
         public void onSuccess(ArrayList<Charge> charges) {
-            showCharges(charges);
-}
-
+            //retorna uma lista de transações
+            showCharges(charges);
+        }
        @Override
         public void onError(Throwable throwable) {
-            display("Erro ao tentar buscar transações");
-            throwable.printStackTrace();
+            //erro ao cancelar transacão
+           throwable.printStackTrace();
         }
 });
 provider.execute();
