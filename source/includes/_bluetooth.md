@@ -1,6 +1,6 @@
 # Bluetooth
 
-Toda comunicação do Pinpad com SDK é feita por Bluetooth.
+Toda comunicação do Pinpad com SDK é feita via Bluetooth.
 
 ## Parear pinpad
 
