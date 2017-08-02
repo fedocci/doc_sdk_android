@@ -1,6 +1,6 @@
 # Cancelar transação
 
-Para cancelar uma transação, basta informar a `transactionID`
+Para cancelar uma transação, basta informar a id da mesma.
 
 ```java
 ReversingTransactionProvider reversingTransactionProvider = new ReversingTransactionProvider(charge.getId());
