@@ -6,7 +6,7 @@ Use ```PaggiTransaction``` para setar os dados da transação.
 
 Tipos de transação ```TypeOfTransactionEnum.CREDIT; TypeOfTransactionEnum.DEBIT```
 
-O limite de parcelas são 12x. Sendo assim ```Paggi.getInstalment(instalmentNumber)``` retorna um ```Enum``` do número de parcelas.
+O limite de parcelas são 12x. Sendo assim ```Paggi.getInstalment(instalmentNumber)``` retorna um ```InstalmentTransactionEnum``` do número de parcelas.
 1 para 1x, 2 para 2x ... 12 para 12x.
 
 ```java
