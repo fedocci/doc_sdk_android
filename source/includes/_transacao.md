@@ -36,7 +36,47 @@ provider.setConnectionCallback(new TransactionCallback() {
             @Override
             public void onError() {
             }
-
         });
 provider.execute();
 ```
+
+# Listar transações
+
+```java
+ChargesProvider provider = new ChargesProvider();
+provider.setConnectionCallback(new ChargesCallback() {
+       @Override
+        public void onSuccess(ArrayList<Charge> charges) {
+            showCharges(charges);
+}
+
+       @Override
+        public void onError(Throwable throwable) {
+            display("Erro ao tentar buscar transações");
+            throwable.printStackTrace();
+        }
+});
+provider.execute();
+```
+
+# Cancelar transação
+
+Para cancelar uma transação, basta informar a id da mesma.
+
+```java
+ReversingTransactionProvider reversingTransactionProvider = new ReversingTransactionProvider(charge.getId());
+reversingTransactionProvider.setConnectionCallback(new CancelTransactionCallback() {
+    @Override
+    public void onSuccess(Charge charge) {
+        display("Cancelamento efetuado: "+charge.toString());
+    }
+
+    @Override
+    public void onFailure(Throwable throwable) {
+        display("Cancelamento não foi efetuado ");
+        throwable.printStackTrace();
+    }
+});
+reversingTransactionProvider.execute();
+```
+
