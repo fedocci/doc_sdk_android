@@ -33,7 +33,7 @@ provider.setConnectionCallback(new TransactionCallback() {
                 //transaçao realizada
             }
             @Override
-            public void onError() {
+            public void onError(Throwable throwable) {
                 //erro ao transacionar
             }
         });
