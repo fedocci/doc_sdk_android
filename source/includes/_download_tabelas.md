@@ -10,7 +10,7 @@ if (!applicationCache.checkIfHasTables()) {
         public void onSuccess() {
             //tabelas baixadas
         };
-        public void onError() {
+        public void onError(Throwable throwable) {
            //erro ao baixar tabelas
         };
     });
