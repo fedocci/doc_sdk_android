@@ -2,6 +2,24 @@
 
 Toda comunicação do Pinpad com SDK é feita via Bluetooth.
 
+## Habilitar Bluetooth
+
+Para ativar o adaptador Bluetooth faça uma chamada a ```TurnOnBluetooth```
+```java
+TurnOnBluetooth turnOnBluetooth = new TurnOnBluetooth();
+turnOnBluetooth.setConnectionCallback(new BluetoothCallback() {
+        @Override
+        public void onSuccess(String manufactorName) {
+                //bluetooth habilitado; retorna do dispositivo
+        }
+        @Override
+        public void onError(String message) {
+               //error message
+        }
+});
+turnOnBluetooth.execute();
+```
+
 ## Parear pinpad
 
 Primeiramente será necessário parear seu pinpad com o celular do cliente
